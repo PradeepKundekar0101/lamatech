@@ -1,0 +1,40 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.wrap {
+  @include card;
+  padding: $space-8;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.message {
+  margin: 0;
+  color: var(--fg-muted);
+  font-family: $font-mono;
+  font-size: 13px;
+}
+
+.button {
+  @include button-reset;
+  margin-top: $space-2;
+  padding: 8px $space-4;
+  background: var(--fg);
+  color: var(--bg);
+  border-radius: $radius-sm;
+  font-weight: 500;
+  font-size: 14px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

@@ -1,0 +1,109 @@
+@use "../styles/tokens" as *;
+@use "../styles/mixins" as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  padding: $space-10 0;
+  max-width: 720px;
+
+  @media (max-width: $bp-sm) {
+    padding: $space-6 0;
+  }
+}
+
+.eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: $color-accent;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.lede {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+  margin-top: $space-2;
+}
+
+.primary,
+.secondary {
+  padding: 10px $space-4;
+  border-radius: $radius-md;
+  font-weight: 500;
+  font-size: 14px;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.primary {
+  background: var(--fg);
+  color: var(--bg);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.secondary {
+  background: var(--bg-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border);
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: $space-4;
+  margin: $space-6 0 0;
+  padding: 0;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-3;
+  }
+}
+
+.stat {
+  @include card;
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+
+  dt {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-subtle);
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--fg);
+    font-variant-numeric: tabular-nums;
+  }
+}

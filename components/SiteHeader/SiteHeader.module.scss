@@ -1,0 +1,120 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(180%) blur(10px);
+
+  @media (prefers-color-scheme: dark) {
+    background: rgba(11, 13, 16, 0.8);
+  }
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: $space-3 $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+
+  @media (max-width: $bp-sm) {
+    padding: $space-3 $space-4;
+    flex-wrap: wrap;
+    gap: $space-3;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+}
+
+.brandMark {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, $color-accent 0%, #7c3aed 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.brandText {
+  letter-spacing: -0.01em;
+}
+
+.nav {
+  display: flex;
+  gap: $space-2;
+  margin-left: $space-3;
+}
+
+.navLink {
+  padding: 6px $space-3;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  transition: background 120ms ease, color 120ms ease;
+
+  &:hover {
+    background: var(--bg-muted);
+    color: var(--fg);
+  }
+}
+
+.roleSwitcher {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.roleLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  color: var(--fg-subtle);
+  font-weight: 600;
+}
+
+.roleGroup {
+  display: inline-flex;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.roleButton {
+  @include button-reset;
+  padding: 4px $space-3;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-transform: capitalize;
+  transition: background 120ms ease, color 120ms ease;
+
+  &:hover:not(:disabled) {
+    color: var(--fg);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+}
+
+.roleButtonActive {
+  background: var(--bg-elevated);
+  color: var(--fg);
+  box-shadow: $shadow-sm;
+}

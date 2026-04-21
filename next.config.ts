@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Sass modules use relative imports to styles/* — no special config needed.
 };
 
 export default nextConfig;

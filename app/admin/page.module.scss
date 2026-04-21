@@ -1,0 +1,115 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-accent;
+  font-weight: 600;
+}
+
+.title {
+  margin: $space-1 0 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: $space-2 0 0;
+  color: var(--fg-muted);
+  font-size: 14px;
+  max-width: 560px;
+}
+
+.code {
+  font-family: $font-mono;
+  font-size: 12px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.table {
+  @include card;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+
+  th,
+  td {
+    text-align: left;
+    padding: $space-3 $space-4;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  thead th {
+    background: var(--bg-muted);
+    color: var(--fg-subtle);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  tbody tr:hover {
+    background: var(--bg-muted);
+  }
+}
+
+.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.mono {
+  font-family: $font-mono;
+  font-size: 12px;
+  color: var(--fg-subtle);
+}
+
+.status {
+  display: inline-flex;
+  padding: 2px $space-2;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  background: var(--bg-muted);
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+
+  &[data-status="published"] {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+    border-color: rgba($color-success, 0.25);
+  }
+
+  &[data-status="in_review"] {
+    background: rgba($color-warning, 0.1);
+    color: $color-warning;
+    border-color: rgba($color-warning, 0.25);
+  }
+
+  &[data-status="draft"] {
+    background: rgba($color-accent, 0.08);
+    color: $color-accent;
+    border-color: rgba($color-accent, 0.25);
+  }
+}

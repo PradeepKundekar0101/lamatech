@@ -1,0 +1,122 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.card {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-5;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+    border-color: var(--border-strong);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-2;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  background: var(--bg-muted);
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+
+  &[data-status="published"] {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+    border-color: rgba($color-success, 0.25);
+  }
+
+  &[data-status="in_review"] {
+    background: rgba($color-warning, 0.1);
+    color: $color-warning;
+    border-color: rgba($color-warning, 0.25);
+  }
+
+  &[data-status="draft"] {
+    background: rgba($color-accent, 0.08);
+    color: $color-accent;
+    border-color: rgba($color-accent, 0.25);
+  }
+
+  &[data-status="archived"] {
+    background: var(--bg-muted);
+    color: var(--fg-subtle);
+  }
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-subtle);
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.titleLink {
+  color: var(--fg);
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: $radius-sm;
+  }
+}
+
+.summary {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-2;
+  font-size: 13px;
+  color: var(--fg-subtle);
+  margin-top: auto;
+}
+
+.author {
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.meta {
+  color: var(--fg-subtle);
+}
+
+.dot {
+  color: var(--border-strong);
+}

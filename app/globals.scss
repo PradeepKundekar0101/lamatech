@@ -1,0 +1,63 @@
+@use "../styles/tokens" as *;
+
+:root {
+  --bg: #{$color-bg};
+  --bg-elevated: #{$color-bg-elevated};
+  --bg-muted: #{$color-bg-muted};
+  --border: #{$color-border};
+  --border-strong: #{$color-border-strong};
+  --fg: #{$color-fg};
+  --fg-muted: #{$color-fg-muted};
+  --fg-subtle: #{$color-fg-subtle};
+  --accent: #{$color-accent};
+  --accent-fg: #{$color-accent-fg};
+  --danger: #{$color-danger};
+  --warning: #{$color-warning};
+  --success: #{$color-success};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0d10;
+    --bg-elevated: #14171c;
+    --bg-muted: #181c22;
+    --border: #232830;
+    --border-strong: #323843;
+    --fg: #f1f3f5;
+    --fg-muted: #b6bcc4;
+    --fg-subtle: #7c8590;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}

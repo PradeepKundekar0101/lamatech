@@ -1,0 +1,123 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+}
+
+.field {
+  position: relative;
+  flex: 1 1 280px;
+  min-width: 220px;
+}
+
+.input {
+  width: 100%;
+  padding: $space-2 $space-8 $space-2 $space-3;
+  border-radius: $radius-sm;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+
+  &::placeholder {
+    color: var(--fg-subtle);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.18);
+  }
+}
+
+.clear {
+  @include button-reset;
+  position: absolute;
+  right: $space-2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--fg-subtle);
+  line-height: 1;
+
+  &:hover {
+    background: var(--bg-muted);
+    color: var(--fg);
+  }
+}
+
+.controls {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+.controlLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-subtle);
+}
+
+.select {
+  padding: 6px $space-3;
+  border-radius: $radius-sm;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 120ms ease;
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.18);
+  }
+}
+
+.indicator {
+  font-size: 12px;
+  color: var(--fg-subtle);
+  margin-left: auto;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
