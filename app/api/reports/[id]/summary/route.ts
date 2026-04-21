@@ -5,7 +5,7 @@ import { AiSummaryError, generateSummary } from "@/lib/ai";
 export const runtime = "nodejs";
 
 async function buildSummary(id: string) {
-  const report = getReportById(id);
+  const report = await getReportById(id);
   if (!report) {
     return NextResponse.json(
       { error: "Report not found", id },

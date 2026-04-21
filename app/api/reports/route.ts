@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const query = parseListQuery(url.searchParams);
-  const reports = queryReports(query);
+  const reports = await queryReports(query);
 
   return NextResponse.json(
     {

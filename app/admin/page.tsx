@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
   const role = await getCurrentRole();
-  const reports = getAllReports();
+  const reports = await getAllReports();
 
   return (
     <div className={styles.page}>

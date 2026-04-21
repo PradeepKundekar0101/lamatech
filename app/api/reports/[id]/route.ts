@@ -8,7 +8,7 @@ export async function GET(
   context: { params: Promise<{ id: string }> },
 ) {
   const { id } = await context.params;
-  const report = getReportById(id);
+  const report = await getReportById(id);
 
   if (!report) {
     return NextResponse.json(

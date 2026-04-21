@@ -2,8 +2,8 @@ import Link from "next/link";
 import { getAllReports } from "@/lib/data/reports";
 import styles from "./page.module.scss";
 
-export default function HomePage() {
-  const reports = getAllReports();
+export default async function HomePage() {
+  const reports = await getAllReports();
   const totalViews = reports.reduce((sum, r) => sum + r.views, 0);
   const published = reports.filter((r) => r.status === "published").length;
 
